@@ -1,0 +1,26 @@
+# sadit_controller/config/controllers.yaml
+
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+
+    diff_cont:
+      type: diff_drive_controller/DiffDriveController
+
+    joint_broad:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+diff_cont:
+  ros__parameters:
+    left_wheel_names: ["sol_on", "sol_arka"]
+    right_wheel_names: ["sag_on", "sag_arka"]
+    wheel_separation: 0.357  # !!! KENDİ ROBOTUNUZA GÖRE GÜNCELLEYİN !!!
+    wheel_radius: 0.125      # !!! KENDİ ROBOTUNUZA GÖRE GÜNCELLEYİN !!!
+    publish_rate: 50.0
+    odom_frame_id: "odom"
+    base_frame_id: "base_link"
+    use_stamped_vel: false
+
+joint_broad:
+  ros__parameters:
+    {}

@@ -1,0 +1,19 @@
+lane_follower:
+  ros__parameters:
+    # Hız limitleri
+    max_linear_speed: 1.0
+    max_angular_speed: 1.0
+    min_angular_speed: -1.0
+    
+    # PID kontrolcü parametreleri
+    kp: 0.02
+    ki: 0.0
+    kd: 0.005
+    
+    # Şerit algılama parametreleri
+    roi_height: 1  # Görüntünün %60'ı
+    roi_width: 1   # Görüntünün %80'i
+    
+    # Threshold değerleri
+    lane_threshold: 500
+    min_contour_area: 50
