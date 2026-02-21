@@ -1,0 +1,20 @@
+services:
+  sadit_bot:
+    build: .
+    container_name: sadit_container_jetson
+    # Jetson'ın GPU'sunu Docker'a bağlayan en kritik ayar
+    runtime: nvidia 
+    network_mode: "host"
+    ipc: "host"
+    privileged: true
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      # Jetson'da donanım hızlandırma için gerekli
+      - LD_LIBRARY_PATH=/usr/lib/aarch64-linux-gnu/tegra:/usr/lib/aarch64-linux-gnu/tegra-egl
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ~/.gazebo/models:/root/.gazebo/models
+      - .:/ros2_ws
+    stdin_open: true
+    tty: true
